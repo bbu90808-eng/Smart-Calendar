@@ -31,10 +31,13 @@ jobs:
           accept-android-sdk-licenses: true
 
       - name: Build APK
+        
         run: |
-          mkdir project
-          unzip SmartCalendar-Android-Project.zip -d project
-          gradle -p project assembleDebug
+            mkdir project
+            unzip SmartCalendar-Android-Project.zip -d project
+            sed -i 's/VERSION_1_8/VERSION_17/g' project/app/build.gradle
+            gradle -p project assembleDebug
+
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
