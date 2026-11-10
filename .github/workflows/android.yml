@@ -35,7 +35,7 @@ jobs:
         run: |
             mkdir project
             unzip SmartCalendar-Android-Project.zip -d project
-            sed -i 's/VERSION_1_8/VERSION_17/g' project/app/build.gradle
+            sed -i 's/VERSION_1_8/VERSION_17/g; s/"1.8"/"17"/g' project/app/build.gradle
             gradle -p project assembleDebug
 
 
